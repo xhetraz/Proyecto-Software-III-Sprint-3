@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRODECOL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Registrar Pedidos</h2>
+        {% if message %}
+            <div class="alert alert-info text-center">
+                {{ message }}
+            </div>
+        {% endif %}
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <form action="/registrarped" method="post" class="border p-4 rounded">
+                    <div class="mb-3">
+                        <label for="cedula" class="form-label">Cédula:</label>
+                        <input type="text" name="cedula" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nombrepieza" class="form-label">Nombre de Pieza:</label>
+                        <input type="text" name="nombrepieza" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="tipopieza" class="form-label">Tipo de Pieza:</label>
+                        <input type="text" name="tipopieza" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cantidad" class="form-label">Cantidad:</label>
+                        <input type="number" name="cantidad" class="form-control" required>
+                    </div>
+
+                    <div class="d-grid">
+                        <input type="submit" name="registrar" value="Registrar Pedido" class="btn btn-primary">
+                        <input type="submit" name="cancelar" value="Cancelar" class="btn btn-secondary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Codigo Pedido</th>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Nombre de Pieza</th>
+                    <th scope="col">Tipo de Pieza</th>
+                    <th scope="col">Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in data %}
+                <tr>
+                    <td>{{d.codpedido}}</td>
+                    <td>{{d.cedula}}</td>
+                    <td>{{d.nombrepieza}}</td>
+                    <td>{{d.tipopieza}}</td>
+                    <td>{{d.cantidad}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-r3Hf6n9paHz1nE6s1Kt4V5n5woflOoRAq0yOq1O9K6Rtqj0q5ggpR0cx7b5JvoC" crossorigin="anonymous"></script>
+</body>
+
+</html>

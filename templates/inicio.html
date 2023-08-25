@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Búsqueda de Cliente</title>
+    <!-- Agregar el enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <p id="message" class="text-danger">{{ mensaje }}</p>
+                <h1 class="text-center mb-4">Búsqueda de Cliente</h1>
+                <form action="/buscar_cliente" method="post">
+                    <div class="form-group">
+                        <label for="cedula">Número de Cédula:</label>
+                        <input type="text" class="form-control" name="cedula" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Agregar el enlace a Bootstrap JS y jQuery (opcional) para funcionalidades adicionales -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
